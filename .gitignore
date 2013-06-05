@@ -1,0 +1,23 @@
+bin/
+bin_test/
+target/
+local/
+
+!runner/configurations/services/org.ops4j.pax.logging.properties
+runner/bundles
+runner/cache
+runner/deploy-pom.xml
+runner/felix
+
+# Eclipse, Netbeans and IntelliJ files
+/.*
+!.gitignore
+/nbproject
+*.ipr
+*.iws
+*.iml
+
+*.jar
+
+# Repository wide ignore mac DS_Store files
+.DS_Store
