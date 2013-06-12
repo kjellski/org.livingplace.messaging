@@ -16,8 +16,9 @@
 
     <packaging>pom</packaging>
 
-
     <properties>
+        <!-- ActiveMQ Client Bundle-->
+        <activemq-client.version>5.8.0</activemq-client.version>
         <!--OSGi Framework Basics-->
         <org.osgi.core.version>4.3.0</org.osgi.core.version>
         <org.osgi.compendium.version>4.3.0</org.osgi.compendium.version>
@@ -46,8 +47,8 @@
     <dependencies>
         <dependency>
             <groupId>org.apache.activemq</groupId>
-            <artifactId>activemq-client</artifactId>
-            <version>5.8.0</version>
+            <artifactId>activemq-osgi</artifactId>
+            <version>${activemq-client.version}</version>
         </dependency>
         <!--OSGi Framework Basics-->
         <dependency>
