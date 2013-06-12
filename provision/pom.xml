@@ -3,16 +3,16 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <parent>
-    <groupId>org.livingplace.messaging</groupId>
-    <artifactId>org.livingplace.messaging.activemq.wrapper</artifactId>
-    <version>1.0.2-SNAPSHOT</version>
+    <groupId>org.livingplace.bundles</groupId>
+    <artifactId>messaging</artifactId>
+    <version>1.0-SNAPSHOT</version>
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.livingplace.messaging.activemq.wrapper.build</groupId>
+  <groupId>org.livingplace.bundles.messaging.build</groupId>
   <artifactId>provision</artifactId>
 
-  <name>org.livingplace.messaging.activemq.wrapper - imported bundles</name>
+  <name>messaging - imported bundles</name>
 
   <packaging>pom</packaging>
 

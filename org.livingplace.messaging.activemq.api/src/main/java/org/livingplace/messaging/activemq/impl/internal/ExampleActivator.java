@@ -1,12 +1,11 @@
 package org.livingplace.messaging.internal;
 
-import java.util.Dictionary;
-import java.util.Properties;
-
+import org.livingplace.messaging.LPActiveMQConnector;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
-import org.livingplace.messaging.ExampleService;
+import java.util.Dictionary;
+import java.util.Properties;
 
 /**
  * Extension of the default OSGi bundle activator
@@ -25,10 +24,10 @@ public final class ExampleActivator
         Dictionary props = new Properties();
         // add specific service properties here...
 
-        System.out.println( "REGISTER org.livingplace.messaging.ExampleService" );
+        System.out.println( "REGISTER org.livingplace.messaging.LPActiveMQConnector" );
 
         // Register our example service implementation in the OSGi service registry
-        bc.registerService( ExampleService.class.getName(), new ExampleServiceImpl(), props );
+        bc.registerService( LPActiveMQConnector.class.getName(), new ExampleServiceImpl(), props );
     }
 
     /**

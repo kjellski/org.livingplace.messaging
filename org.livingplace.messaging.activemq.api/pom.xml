@@ -4,35 +4,26 @@
 
     <parent>
         <relativePath>../poms/compiled/</relativePath>
-        <groupId>org.livingplace.messaging.activemq.wrapper.build</groupId>
+        <groupId>org.livingplace.bundles.messaging.build</groupId>
         <artifactId>compiled-bundle-settings</artifactId>
-        <version>1.0.2-SNAPSHOT</version>
+        <version>1.0-SNAPSHOT</version>
     </parent>
 
     <properties>
-        <bundle.symbolicName>org.livingplace.messaging</bundle.symbolicName>
-        <bundle.namespace>org.livingplace.messaging</bundle.namespace>
+        <bundle.symbolicName>${project.artifactId}</bundle.symbolicName>
+        <bundle.namespace>${project.artifactId}</bundle.namespace>
     </properties>
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.livingplace.messaging.activemq.wrapper</groupId>
-    <artifactId>org.livingplace.messaging</artifactId>
-    <version>1.0.2-SNAPSHOT</version>
+    <groupId>org.livingplace.bundles.messaging</groupId>
+    <artifactId>org.livingplace.messaging.activemq.api</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
-    <name>${bundle.symbolicName}</name>
+    <name>LivingPlace :: Messaging :: ActiveMQ :: Provider</name>
 
     <packaging>bundle</packaging>
 
     <dependencies>
-        <!--
-         | uncomment to add all imported (non-local) bundles to your compilation classpath
-        <dependency>
-          <type>pom</type>
-          <groupId>${parent.groupId}</groupId>
-          <artifactId>provision</artifactId>
-          <optional>true</optional>
-        </dependency>
-        -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

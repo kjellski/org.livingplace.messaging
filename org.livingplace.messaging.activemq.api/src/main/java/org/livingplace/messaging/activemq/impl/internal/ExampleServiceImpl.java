@@ -1,16 +1,16 @@
 package org.livingplace.messaging.internal;
 
+import org.livingplace.messaging.LPActiveMQConnector;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import org.livingplace.messaging.ExampleService;
 
 /**
  * Internal implementation of our example OSGi service
  */
 public final class ExampleServiceImpl
-    implements ExampleService
+    implements LPActiveMQConnector
 {
     // implementation methods go here...
 
