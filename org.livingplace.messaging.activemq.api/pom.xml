@@ -19,7 +19,7 @@
     <artifactId>org.livingplace.messaging.activemq.api</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>LivingPlace :: Messaging :: ActiveMQ :: Provider</name>
+    <name>LivingPlace :: Messaging :: ActiveMQ :: API</name>
 
     <packaging>bundle</packaging>
 

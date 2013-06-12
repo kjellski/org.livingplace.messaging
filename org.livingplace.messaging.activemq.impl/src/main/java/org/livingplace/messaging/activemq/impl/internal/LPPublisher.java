@@ -1,8 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package org.livingplace.messaging.internal;
+package org.livingplace.messaging.activemq.impl.internal;
 
 import com.mongodb.*;
 import org.apache.activemq.ActiveMQConnectionFactory;
@@ -14,6 +10,7 @@ import java.util.logging.Logger;
 
 /**
  * Nachrichten ueber ein Topic senden
+ *
  * @author kjelllski
  */
 public class LPPublisher {
@@ -39,6 +36,7 @@ public class LPPublisher {
 
     /**
      * Send a TextMessage, JSON encoded, with a producer for the given Queue.
+     *
      * @param msg message content
      */
     public void publish(String msg) {
@@ -54,6 +52,7 @@ public class LPPublisher {
 
     /**
      * Connect to the CouchDB and persists the transmitted Message
+     *
      * @param msg
      */
     private void sendDocumentToMongoDB(TextMessage msg, String topicName) throws MongoException, NullPointerException {
@@ -145,7 +144,7 @@ public class LPPublisher {
             if (topicConnection != null) {
                 this.topicConnection.close();
             }
-            
+
         } catch (JMSException ex) {
             Logger.getLogger(LPPublisher.class.getName()).log(Level.SEVERE, null, ex);
         }

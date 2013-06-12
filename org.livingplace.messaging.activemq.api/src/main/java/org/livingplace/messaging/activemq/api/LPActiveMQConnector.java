@@ -1,4 +1,4 @@
-package org.livingplace.messaging;
+package org.livingplace.messaging.activemq.api;
 
 /**
  * Public API representing an example OSGi service

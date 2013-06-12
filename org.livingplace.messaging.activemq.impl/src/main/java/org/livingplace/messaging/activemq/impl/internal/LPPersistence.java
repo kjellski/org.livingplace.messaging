@@ -1,8 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package org.livingplace.messaging.internal;
+package org.livingplace.messaging.activemq.impl.internal;
 
 import com.mongodb.DB;
 import com.mongodb.Mongo;
@@ -13,13 +9,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
  * @author iFlat
  */
 public class LPPersistence {
 
     private static Mongo mongo = null;
-    private static DB db =null;
+    private static DB db = null;
 
     private LPPersistence() {
         // Exists only to defeat instantiation.
@@ -27,8 +22,8 @@ public class LPPersistence {
 
 
     public synchronized static Mongo getMongoInstance(String ip, int port) throws MongoException, UnknownHostException {
-        
-        if(mongo == null){
+
+        if (mongo == null) {
             try {
                 mongo = new Mongo(ip, port);
             } catch (UnknownHostException ex) {
@@ -46,9 +41,9 @@ public class LPPersistence {
         return mongo;
     }
 
-    public synchronized static DB getDBInstance(){
-        
-        if(db == null && mongo != null){
+    public synchronized static DB getDBInstance() {
+
+        if (db == null && mongo != null) {
             db = mongo.getDB("amqmessages");
         }
 

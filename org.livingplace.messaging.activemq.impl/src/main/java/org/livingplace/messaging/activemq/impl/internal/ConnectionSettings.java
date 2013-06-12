@@ -1,12 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-package org.livingplace.messaging.internal;
+package org.livingplace.messaging.activemq.impl.internal;
 
 /**
- *
  * @author kjelllski
  */
 public class ConnectionSettings {

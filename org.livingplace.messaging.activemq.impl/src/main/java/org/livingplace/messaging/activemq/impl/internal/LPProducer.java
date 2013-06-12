@@ -1,8 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package org.livingplace.messaging.internal;
+package org.livingplace.messaging.activemq.impl.internal;
 
 import com.mongodb.*;
 import org.apache.activemq.ActiveMQConnectionFactory;
@@ -14,6 +10,7 @@ import java.util.logging.Logger;
 
 /**
  * Nachrichten ueber eine Queue versenden
+ *
  * @author kjelllski
  */
 public class LPProducer {
@@ -39,6 +36,7 @@ public class LPProducer {
 
     /**
      * Send a TextMessage, JSON encoded, with a producer for the given Queue.
+     *
      * @param msg message content
      */
     public void produce(String msg) {
@@ -54,6 +52,7 @@ public class LPProducer {
 
     /**
      * Connect to the CouchDB and persists the transmitted Message
+     *
      * @param msg
      * @param queueName
      */
@@ -128,7 +127,7 @@ public class LPProducer {
             throw new JMSException("FATAL: \t| We can't connect to the ActiveMQ" + "\n" + ex);
         }
     }
-    
+
     public void disconnect() {
         try {
 
@@ -147,5 +146,5 @@ public class LPProducer {
             Logger.getLogger(LPConsumer.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
 }

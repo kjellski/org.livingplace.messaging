@@ -1,4 +1,4 @@
-package org.livingplace.messaging.internal;
+package org.livingplace.messaging.activemq.impl.internal;
 
 import com.mongodb.MongoException;
 
