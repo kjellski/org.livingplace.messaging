@@ -2,6 +2,7 @@ package org.livingplace.messaging.activemq.impl.internal;
 
 import com.mongodb.*;
 import org.apache.activemq.ActiveMQConnectionFactory;
+import org.livingplace.messaging.activemq.api.ILPProducer;
 
 import javax.jms.*;
 import java.net.UnknownHostException;
@@ -13,7 +14,7 @@ import java.util.logging.Logger;
  *
  * @author kjelllski
  */
-public class LPProducer {
+public class LPProducer implements ILPProducer {
 
     private QueueConnection queueConnection;
     private String queueName;
@@ -39,6 +40,7 @@ public class LPProducer {
      *
      * @param msg message content
      */
+    @Override
     public void produce(String msg) {
         try {
             TextMessage t = this.queueSession.createTextMessage(msg);
@@ -56,6 +58,7 @@ public class LPProducer {
      * @param msg
      * @param queueName
      */
+    @Override
     public void sendDocumentToMongoDB(TextMessage msg, String queueName) {
         try {
 
@@ -128,6 +131,7 @@ public class LPProducer {
         }
     }
 
+    @Override
     public void disconnect() {
         try {
 

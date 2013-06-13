@@ -1,6 +1,7 @@
 package org.livingplace.messaging.activemq.impl.internal;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
+import org.livingplace.messaging.activemq.api.ILPConsumer;
 
 import javax.jms.*;
 import java.util.logging.Level;
@@ -11,7 +12,7 @@ import java.util.logging.Logger;
  *
  * @author kjelllski
  */
-public class LPConsumer {
+public class LPConsumer implements ILPConsumer {
 
     private QueueConnection queueConnection;
     private String queueName;
@@ -39,6 +40,7 @@ public class LPConsumer {
      *
      * @param listener MessageListener with an implementation of onMessage()
      */
+    @Override
     public void consume(MessageListener listener) throws JMSException {
         try {
             this.consumer.setMessageListener(listener);
@@ -64,6 +66,7 @@ public class LPConsumer {
      * @return Message from the queue. null indicates failure of receive, look
      *         at System.err and Logger file for further instructions.
      */
+    @Override
     public String consumeBlocking() throws JMSException {
         String type = "unknown";
         try {
@@ -104,6 +107,7 @@ public class LPConsumer {
      *         receive, look at System.err and Logger file for further
      *         instructions.
      */
+    @Override
     public String consumeBlockingWithTimeout(long timeoutInMillies)
             throws JMSException {
         String type = "unknown";
@@ -181,6 +185,7 @@ public class LPConsumer {
         }
     }
 
+    @Override
     public void disconnect() {
         try {
 

@@ -1,5 +1,7 @@
 package org.livingplace.messaging.activemq.impl.internal;
 
+import org.livingplace.messaging.activemq.api.ILPPushPullClient;
+
 import javax.jms.JMSException;
 import javax.jms.MessageListener;
 import java.net.UnknownHostException;
@@ -7,7 +9,7 @@ import java.net.UnknownHostException;
 /**
  * @author kjelllski
  */
-public class LPPushPullClient {
+public class LPPushPullClient implements ILPPushPullClient {
 
     private LPProducer producer;
     private LPSubscriber subscriber;
@@ -39,6 +41,7 @@ public class LPPushPullClient {
      * @param requestAcceptedByTarget sent to corresponding queue
      * @param listener                for the topic where the answer comes from
      */
+    @Override
     public void pushPull(String requestAcceptedByTarget, MessageListener listener) throws JMSException {
         this.producer.produce(requestAcceptedByTarget);
         this.subscriber.subscribe(listener);
@@ -53,6 +56,7 @@ public class LPPushPullClient {
      * @param identifierInMsg
      * @return the msg that contains the identifierInMsg pattern.
      */
+    @Override
     public String pushPullAndWaitForAnswer(String requestAcceptedByTarget, String identifierInMsg) throws JMSException {
         this.producer.produce(requestAcceptedByTarget);
 

@@ -1,11 +1,12 @@
 package org.livingplace.messaging.activemq.impl.internal;
 
 import com.mongodb.MongoException;
+import org.livingplace.messaging.activemq.api.ILPPullPushServer;
 
 import javax.jms.JMSException;
 import java.net.UnknownHostException;
 
-public class LPPullPushServer {
+public class LPPullPushServer implements ILPPullPushServer {
 
     private LPConsumer consumer;
     private LPPublisher publisher;
@@ -30,10 +31,12 @@ public class LPPullPushServer {
         configure(queueName, topicName, s);
     }
 
+    @Override
     public String pull() throws JMSException {
         return this.consumer.consumeBlocking();
     }
 
+    @Override
     public void push(String answer) {
         this.publisher.publish(answer);
     }

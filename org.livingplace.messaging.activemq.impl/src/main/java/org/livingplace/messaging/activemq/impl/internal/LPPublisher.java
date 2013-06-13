@@ -2,6 +2,7 @@ package org.livingplace.messaging.activemq.impl.internal;
 
 import com.mongodb.*;
 import org.apache.activemq.ActiveMQConnectionFactory;
+import org.livingplace.messaging.activemq.api.ILPPublisher;
 
 import javax.jms.*;
 import java.net.UnknownHostException;
@@ -13,7 +14,7 @@ import java.util.logging.Logger;
  *
  * @author kjelllski
  */
-public class LPPublisher {
+public class LPPublisher implements ILPPublisher {
 
     private TopicConnection topicConnection;
     private String topicName;
@@ -39,6 +40,7 @@ public class LPPublisher {
      *
      * @param msg message content
      */
+    @Override
     public void publish(String msg) {
         try {
             TextMessage t = this.topicSession.createTextMessage(msg);
@@ -130,6 +132,7 @@ public class LPPublisher {
         }
     }
 
+    @Override
     public void disconnect() {
         try {
 
