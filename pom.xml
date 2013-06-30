@@ -41,7 +41,7 @@
                     <provision>
                         <param>--platform=felix</param>
                         <param>--log=debug</param>
-                        <param>--profiles=web</param>
+                        <param>--profiles=log,web</param>
                         <!--<param>-autoWrap</param>-->
                         <param>wrap:mvn:org.apache.activemq/activemq-client/5.8.0</param>
                     </provision>

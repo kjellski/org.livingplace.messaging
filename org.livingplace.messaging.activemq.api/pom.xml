@@ -40,15 +40,15 @@
             <artifactId>mongo-java-driver</artifactId>
             <version>2.2</version>
         </dependency>
-        <!-- OSGi Dependencies -->
+        <!--OSGi Core Dependencies-->
         <dependency>
             <groupId>org.osgi</groupId>
-            <artifactId>osgi_R4_core</artifactId>
+            <artifactId>org.osgi.core</artifactId>
             <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.osgi</groupId>
-            <artifactId>osgi_R4_compendium</artifactId>
+            <artifactId>org.osgi.compendium</artifactId>
             <optional>true</optional>
         </dependency>
     </dependencies>
