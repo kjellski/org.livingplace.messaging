@@ -2,4 +2,21 @@
 # Use this file to add customized Bnd instructions for the bundle
 #-----------------------------------------------------------------
 
-#Bundle-Activator: ${bundle.namespace}.internal.ExampleActivator
+Export-Package: org.livingplace.messaging.activemq.impl
+Import-Package: org.livingplace.messaging.activemq.api,\
+    com.mongodb,\
+    javax.jms,\
+    org.apache.activemq,\
+    org.apache.activemq:activemq-camel,\
+    org.apache.activemq:activemq-core,\
+    org.apache.activemq:activemq-console,\
+    org.apache.activemq:activemq-jaas,\
+    org.apache.activemq:activemq-optional,\
+    org.apache.activemq:kahadb,\
+    org.apache.geronimo.specs:geronimo-jms_1.1_spec,\
+    org.apache.geronimo.specs:geronimo-jta_1.0.1B_spec,\
+    org.apache.geronimo.specs:geronimo-j2ee-management_1.1_spec,\
+    org.apache.geronimo.specs:geronimo-annotation_1.0_spec,\
+    org.slf4j:slf4j-api,\
+    org.slf4j:slf4j-log4j12,\
+    log4j:log4j

@@ -2,6 +2,7 @@ package org.livingplace.messaging.activemq.impl.internal;
 
 import com.mongodb.*;
 import org.apache.activemq.ActiveMQConnectionFactory;
+import org.livingplace.messaging.activemq.api.ILPConnectionSettings;
 import org.livingplace.messaging.activemq.api.ILPProducer;
 
 import javax.jms.*;
@@ -28,10 +29,10 @@ public class LPProducer implements ILPProducer {
     public boolean DEBUG = false;
 
     public LPProducer(String queueName) throws JMSException, UnknownHostException, MongoException {
-        configure(queueName, new ConnectionSettings());
+        configure(queueName, new LPConnectionSettings());
     }
 
-    public LPProducer(String queueName, ConnectionSettings s) throws JMSException, UnknownHostException, MongoException {
+    public LPProducer(String queueName, ILPConnectionSettings s) throws JMSException, UnknownHostException, MongoException {
         configure(queueName, s);
     }
 
@@ -90,9 +91,9 @@ public class LPProducer implements ILPProducer {
         }
     }
 
-    private void configure(String queueName, ConnectionSettings s) throws JMSException, MongoException, UnknownHostException {
+    private void configure(String queueName, ILPConnectionSettings s) throws JMSException, MongoException, UnknownHostException {
         this.queueName = queueName;
-        String address = s.amq_protocol + "://" + s.amq_ip + ":" + s.amq_port;
+        String address = s.getActiveMQProtocol() + "://" + s.getActiveMQIp() + ":" + s.getActiveMQPort();
 
         this.connectionFactory = new ActiveMQConnectionFactory(address);
 
@@ -100,7 +101,7 @@ public class LPProducer implements ILPProducer {
             this.queueConnection = this.connectionFactory.createQueueConnection();
             this.queueConnection.start();
 
-            this.mongo = LPPersistence.getMongoInstance(s.mongo_ip, s.mongo_port);
+            this.mongo = LPPersistence.getMongoInstance(s.getMongoDBIp(), s.getMongoDBPort());
             this.db = LPPersistence.getDBInstance();
             this.collection = db.getCollection("testCollection");
 

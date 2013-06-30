@@ -1,6 +1,7 @@
 package org.livingplace.messaging.activemq.impl.internal;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
+import org.livingplace.messaging.activemq.api.ILPConnectionSettings;
 import org.livingplace.messaging.activemq.api.ILPSubscriber;
 
 import javax.jms.*;
@@ -25,10 +26,10 @@ public class LPSubscriber implements ILPSubscriber {
     public boolean DEBUG = false;
 
     public LPSubscriber(String topicName) throws JMSException {
-        configure(topicName, new ConnectionSettings());
+        configure(topicName, new LPConnectionSettings());
     }
 
-    public LPSubscriber(String topicName, ConnectionSettings s)
+    public LPSubscriber(String topicName, ILPConnectionSettings s)
             throws JMSException {
         configure(topicName, s);
     }
@@ -135,12 +136,12 @@ public class LPSubscriber implements ILPSubscriber {
         }
     }
 
-    private void configure(String topicName, ConnectionSettings s)
+    private void configure(String topicName, ILPConnectionSettings s)
             throws JMSException {
         this.topicName = topicName;
-        global_ip = s.amq_ip;
-        global_port = s.amq_port;
-        global_protocol = s.amq_protocol;
+        global_ip = s.getActiveMQIp();
+        global_port = s.getActiveMQPort();
+        global_protocol = s.getActiveMQProtocol();
         address = global_protocol + "://" + global_ip + ":" + global_port;
 
         this.connectionFactory = new ActiveMQConnectionFactory(address);

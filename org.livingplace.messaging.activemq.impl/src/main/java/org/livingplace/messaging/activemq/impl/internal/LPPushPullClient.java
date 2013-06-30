@@ -1,5 +1,6 @@
 package org.livingplace.messaging.activemq.impl.internal;
 
+import org.livingplace.messaging.activemq.api.ILPConnectionSettings;
 import org.livingplace.messaging.activemq.api.ILPPushPullClient;
 
 import javax.jms.JMSException;
@@ -27,10 +28,10 @@ public class LPPushPullClient implements ILPPushPullClient {
     }
 
     public LPPushPullClient(String queueName, String topicName) throws JMSException, UnknownHostException {
-        configure(queueName, topicName, new ConnectionSettings());
+        configure(queueName, topicName, new LPConnectionSettings());
     }
 
-    public LPPushPullClient(String queueName, String topicName, ConnectionSettings s) throws JMSException, UnknownHostException {
+    public LPPushPullClient(String queueName, String topicName, ILPConnectionSettings s) throws JMSException, UnknownHostException {
         configure(queueName, topicName, s);
     }
 
@@ -72,7 +73,7 @@ public class LPPushPullClient implements ILPPushPullClient {
         return null;
     }
 
-    private void configure(String queueName, String topicName, ConnectionSettings s) throws JMSException, UnknownHostException {
+    private void configure(String queueName, String topicName, ILPConnectionSettings s) throws JMSException, UnknownHostException {
         this.producer = new LPProducer(queueName, s);
         this.subscriber = new LPSubscriber(topicName, s);
     }

@@ -2,6 +2,7 @@ package org.livingplace.messaging.activemq.impl.internal;
 
 import com.mongodb.*;
 import org.apache.activemq.ActiveMQConnectionFactory;
+import org.livingplace.messaging.activemq.api.ILPConnectionSettings;
 import org.livingplace.messaging.activemq.api.ILPPublisher;
 
 import javax.jms.*;
@@ -28,10 +29,10 @@ public class LPPublisher implements ILPPublisher {
     public boolean DEBUG = false;
 
     public LPPublisher(String topicName) throws JMSException, UnknownHostException, MongoException {
-        configure(topicName, new ConnectionSettings());
+        configure(topicName, new LPConnectionSettings());
     }
 
-    public LPPublisher(String topicName, ConnectionSettings s) throws JMSException, UnknownHostException, MongoException {
+    public LPPublisher(String topicName, ILPConnectionSettings s) throws JMSException, UnknownHostException, MongoException {
         configure(topicName, s);
     }
 
@@ -88,17 +89,16 @@ public class LPPublisher implements ILPPublisher {
         }
     }
 
-    private void configure(String topicName, ConnectionSettings s) throws MongoException, JMSException, UnknownHostException {
+    private void configure(String topicName, ILPConnectionSettings s) throws MongoException, JMSException, UnknownHostException {
         this.topicName = topicName;
-        String address = s.amq_protocol + "://" + s.amq_ip + ":" + s.amq_port;
-
+        String address = s.getActiveMQProtocol() + "://" + s.getActiveMQIp() + ":" + s.getActiveMQPort();
         this.connectionFactory = new ActiveMQConnectionFactory(address);
 
         try {
             this.topicConnection = this.connectionFactory.createTopicConnection();
             this.topicConnection.start();
 
-            this.mongo = LPPersistence.getMongoInstance(s.mongo_ip, s.mongo_port);
+            this.mongo = LPPersistence.getMongoInstance(s.getMongoDBIp(), s.getMongoDBPort());
             this.db = LPPersistence.getDBInstance();
             this.collection = db.getCollection("testCollection");
 

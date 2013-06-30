@@ -1,6 +1,7 @@
 package org.livingplace.messaging.activemq.impl.internal;
 
 import com.mongodb.MongoException;
+import org.livingplace.messaging.activemq.api.ILPConnectionSettings;
 import org.livingplace.messaging.activemq.api.ILPPullPushServer;
 
 import javax.jms.JMSException;
@@ -24,10 +25,10 @@ public class LPPullPushServer implements ILPPullPushServer {
     }
 
     public LPPullPushServer(String queueName, String topicName) throws MongoException, UnknownHostException, JMSException {
-        configure(queueName, topicName, new ConnectionSettings());
+        configure(queueName, topicName, new LPConnectionSettings());
     }
 
-    public LPPullPushServer(String queueName, String topicName, ConnectionSettings s) throws MongoException, JMSException, UnknownHostException {
+    public LPPullPushServer(String queueName, String topicName, ILPConnectionSettings s) throws MongoException, JMSException, UnknownHostException {
         configure(queueName, topicName, s);
     }
 
@@ -41,7 +42,7 @@ public class LPPullPushServer implements ILPPullPushServer {
         this.publisher.publish(answer);
     }
 
-    private void configure(String queueName, String topicName, ConnectionSettings s) throws JMSException, MongoException, UnknownHostException {
+    private void configure(String queueName, String topicName, ILPConnectionSettings s) throws JMSException, MongoException, UnknownHostException {
         this.consumer = new LPConsumer(queueName, s);
         this.publisher = new LPPublisher(topicName, s);
     }

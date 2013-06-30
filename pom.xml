@@ -42,8 +42,8 @@
                         <param>--platform=felix</param>
                         <param>--log=error</param>
                         <!--<param>-profiles=web</param>-->
-                        <param>--autoWrap</param>
-                        <param>mvn:org.apache.activemq/activemq-osgi/5.8.0</param>
+                        <!--<param>-autoWrap</param>-->
+                        <param>wrap:mvn:org.apache.activemq/activemq-osgi/5.8.0</param>
                     </provision>
                 </configuration>
             </plugin>
