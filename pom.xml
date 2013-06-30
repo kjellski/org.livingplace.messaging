@@ -40,10 +40,10 @@
                 <configuration>
                     <provision>
                         <param>--platform=felix</param>
-                        <param>--log=error</param>
-                        <!--<param>-profiles=web</param>-->
+                        <param>--log=debug</param>
+                        <param>--profiles=web</param>
                         <!--<param>-autoWrap</param>-->
-                        <param>wrap:mvn:org.apache.activemq/activemq-osgi/5.8.0</param>
+                        <param>wrap:mvn:org.apache.activemq/activemq-client/5.8.0:org.slf4j/slf4j-api/1.6.6</param>
                     </provision>
                 </configuration>
             </plugin>

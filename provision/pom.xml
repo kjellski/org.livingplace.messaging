@@ -22,6 +22,12 @@
         <!--OSGi Framework Basics-->
         <org.osgi.core.version>4.3.0</org.osgi.core.version>
         <org.osgi.compendium.version>4.3.0</org.osgi.compendium.version>
+        <!-- Platform Provided OSGi Service implementations -->
+        <org.apache.felix.log.version>1.0.1</org.apache.felix.log.version>
+        <org.apache.felix.scr.version>1.6.0</org.apache.felix.scr.version>
+        <org.apache.felix.configadmin.version>1.6.0</org.apache.felix.configadmin.version>
+        <org.apache.felix.bundlerepository.version>1.6.6</org.apache.felix.bundlerepository.version>
+        <pax-confman-propsloader.version>0.2.3</pax-confman-propsloader.version>
     </properties>
 
     <!--
@@ -32,9 +38,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.apache.activemq</groupId>
-            <artifactId>activemq-osgi</artifactId>
-            <version>${activemq-client.version}</version>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.6.6</version>
         </dependency>
     </dependencies>
 

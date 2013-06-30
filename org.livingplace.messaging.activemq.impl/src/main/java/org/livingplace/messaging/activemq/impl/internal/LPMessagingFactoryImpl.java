@@ -1,34 +1,30 @@
 package org.livingplace.messaging.activemq.impl.internal;
 
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Service;
 import org.livingplace.messaging.activemq.api.*;
 
-import java.util.logging.Logger;
-
-@Component(immediate = true)
-@Service
+//@Component(immediate = true)
+//@Service
 public class LPMessagingFactoryImpl implements ILPMessagingFactory {
-
-    private static volatile LPMessagingFactoryImpl instance = null;
-    private static Logger logger = Logger.getLogger(LPMessagingFactoryImpl.class);
-
-    private static LPMessagingFactoryImpl createInstance() {
-        if (instance == null) {
-            synchronized (LPMessagingFactoryImpl.class){
-                if (instance == null) {
-                    logger.info("Instantiated the singleton InformationRegistry.");
-                    instance = new LPMessagingFactoryImpl();
-                }
-            }
-        }
-        return instance;
-    }
-
-    @Override
-    public LPMessagingFactoryImpl getInstance() {
-        return createInstance();
-    }
+//
+//    private static volatile LPMessagingFactoryImpl instance = null;
+//    private static Logger logger = Logger.getLogger(LPMessagingFactoryImpl.class);
+//
+//    private static LPMessagingFactoryImpl createInstance() {
+//        if (instance == null) {
+//            synchronized (LPMessagingFactoryImpl.class){
+//                if (instance == null) {
+//                    logger.info("Instantiated the singleton InformationRegistry.");
+//                    instance = new LPMessagingFactoryImpl();
+//                }
+//            }
+//        }
+//        return instance;
+//    }
+//
+//    @Override
+//    public LPMessagingFactoryImpl getInstance() {
+//        return createInstance();
+//    }
 
     @Override
     public ILPSubscriber getLPSubscriberInstance() {
