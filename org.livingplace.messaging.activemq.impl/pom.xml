@@ -24,10 +24,39 @@
     <packaging>bundle</packaging>
 
     <dependencies>
+        <!--OSGi Core Dependencies-->
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.core</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.compendium</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <!--Logging Dependencies-->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.16</version>
+        </dependency>
+        <!-- Controlling Dependencies -->
         <dependency>
             <groupId>org.livingplace.bundles.messaging</groupId>
             <artifactId>org.livingplace.messaging.activemq.api</artifactId>
             <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!-- Component Annotations Dependencies -->
+        <dependency>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>org.apache.felix.scr</artifactId>
+            <version>1.6.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>org.apache.felix.scr.annotations</artifactId>
+            <version>1.7.0</version>
         </dependency>
         <!--Logging Dependencies-->
         <dependency>
@@ -53,28 +82,6 @@
             <groupId>org.mongodb</groupId>
             <artifactId>mongo-java-driver</artifactId>
             <version>2.2</version>
-        </dependency>
-        <!-- OSGi Core Dependencies-->
-        <dependency>
-            <groupId>org.osgi</groupId>
-            <artifactId>org.osgi.core</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.osgi</groupId>
-            <artifactId>org.osgi.compendium</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <!-- Component Annotations Dependencies -->
-        <dependency>
-            <groupId>org.apache.felix</groupId>
-            <artifactId>org.apache.felix.scr</artifactId>
-            <version>1.6.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.felix</groupId>
-            <artifactId>org.apache.felix.scr.annotations</artifactId>
-            <version>1.7.0</version>
         </dependency>
     </dependencies>
 
