@@ -1,3 +1,6 @@
 #-----------------------------------------------------------------
 # Use this file to add customized Bnd instructions for the bundle
 #-----------------------------------------------------------------
+
+Export-Package: org.livingplace.messaging.activemq.api.*
+Service-Component: *
